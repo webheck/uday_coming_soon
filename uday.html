@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+
+  <style type="text/css">
+*{
+       font-family: 'Special Elite', cursive;
+}
+
+    body, html {
+  height: 100%;
+  margin: 0;
+}
+#dots{
+      display: none;
+    }
+    .coming_soon{
+      background-image: url(black.png);
+      height: 100%; 
+      background-size: cover;
+      position: relative;
+      color: #fff;
+       background-position: center;
+  background-repeat: no-repeat;
+  
+    }
+    .middle{
+      position: absolute;
+      top: 38%;
+      left: 30%;
+
+    }
+    .middle h1{
+      font-family: 'Special Elite', cursive;
+      font-size: 64px;
+      letter-spacing: 10px;
+      text-align: center;
+      animation: text-flicker 3s linear infinite;
+    }
+    @keyframes text-flicker{
+      0%{
+        opacity: 0.1;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        2%{
+        opacity: 1;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        8%{
+        opacity: 1;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        9%{
+        opacity: 1;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        12%{
+        opacity: 0.1;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        20%{
+        opacity: 1;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        25%{
+        opacity: 0.3;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        30%{
+        opacity: 1;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+      70%{
+        opacity: 0.7;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+      72%{
+        opacity: 0.2;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+      77%{
+        opacity: 0.9;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+        77%{
+        opacity: 0.9;
+        text-shadow: 0px 0px 20px rgba(242,22,22,1);
+      }
+    }
+    .count{
+      margin:40px 0px;
+
+    }
+    .countd{
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+      border: 1px solid #fff;
+      margin: 0 30px;
+      font-size: 16px;
+      overflow: hidden;
+      border-radius: 50%;
+           text-align: center;
+           box-shadow: 0 5px 5px rgba(242,22,22,0.4);
+
+    }
+    .countd span{
+      display: block;
+      font-size: 26px;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .on_img img{
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    @media only screen and (max-width: 760px) {
+ .middle{
+      position: absolute;
+      top: 38%;
+      left: 15%;
+
+    }
+}
+  </style>
+</head>
+<body>
+<section class="coming_soon" id="backc">
+
+<div class="on_img">
+  <img id="power_on" onclick="myfunction()" src="on.png">
+</div>
+
+  <div class="middle" id="dots">
+    <h1>COMING SOON</h1>
+    <div class="count">
+      <div class="countd">
+        <span id="days">00</span>
+        DAYS
+      </div>
+ <div class="countd">
+        <span id="hours">00</span>
+        HOURS
+      </div>
+       <div class="countd">
+        <span id="minutes">00</span>
+        MINUTES
+      </div>
+       <div class="countd">
+        <span id="seconds">00</span>
+        SECOND
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script type="text/javascript">
+  var count =new Date("oct 2,2020 00:00:00").getTime();
+  var x=setInterval(function() {
+    var now = new Date().getTime();
+    var d= count - now;
+
+
+    var days= Math.floor(d/(1000*60*60*24));
+    var hours= Math.floor((d%(1000*60*60*24))/(1000*60*60));
+  var minutes= Math.floor((d%(1000*60*60))/(1000*60));
+    var seconds= Math.floor((d%(1000*60))/1000);
+
+    document.getElementById("days").innerHTML =days;
+    document.getElementById("hours").innerHTML =hours;
+    document.getElementById("minutes").innerHTML =minutes;
+    document.getElementById("seconds").innerHTML =seconds;
+  },1000);
+</script>
+<script type="text/javascript">
+  function myfunction() {
+var dots = document.getElementById("dots");
+  var background_change = document.getElementById("backc");
+  
+  var on = document.getElementById("power_on");
+// background_change.style.backgroundImage="url('background.jpg')";
+
+if (dots.style.display == "inline") {
+    dots.style.display = "none";
+  background_change.style.backgroundImage="url('black.png')";
+   on.src = "on.png";
+  }
+else {
+    dots.style.display = "inline";
+     background_change.style.backgroundImage="url('background.jpg')";
+   on.src ="off.png";
+  }
+
+  }
+   
+
+</script>
+</body>
+
+</html>
+
